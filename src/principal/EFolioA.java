@@ -81,12 +81,12 @@ class EFolioA {
                     if (principal.getOpcao() == 1){
                         principal.Plaintext();
                         Rot13.setPlainText(principal.getPlaintext().toUpperCase());
-                        Rot13.RotEncriptacao( );
+                        Rot13.rotEncriptacao( );
                         System.out.println("Texto Encriptado: " + Rot13.getMsgEncriptada());// Output
                     }else if (principal.getOpcao() == 2) {
                         principal.Plaintext();
                         Rot13.setPlainText(principal.getPlaintext().toUpperCase());
-                        Rot13.RotEn_De( );
+                        Rot13.rotEnDe( );
                         System.out.println("Texto Encriptado: " + Rot13.getMsgEncriptada());// Output
                         System.out.println("Texto Desencriptado: " + Rot13.getMsgDesencriptada());// Output
                     }else if (principal.getOpcao() == 3) {

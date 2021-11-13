@@ -56,13 +56,13 @@ public class Simetrico{
         return new String(caracteres);//converção de array em new String
     }
     //Funcao para Criptar -> utiliza uma vez o algoritmo rot13
-    public String RotEncriptacao( ) {
+    public String rotEncriptacao( ) {
         setMsgEncriptada(rot13());
         return getMsgEncriptada();
     }
     //Funcao para Criptar e Decriptar  -> utiliza duas vezes o algoritmo rot13
-    public void RotEn_De ( ) {
-        setMsgEncriptada(RotEncriptacao());
+    public void rotEnDe( ) {
+        setMsgEncriptada(rotEncriptacao());
         setPlainText(getMsgEncriptada());
         setMsgDesencriptada(rot13());
     }
