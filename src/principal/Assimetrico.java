@@ -126,14 +126,14 @@ public class Assimetrico {
         this.setD(getE().modInverse(getPhi()));
     }
     //Funcao para Encriptar ->  calculo da potencia modular
-     public void rsaEncriptar(String texto) {
+     public void RsaEncriptar(String texto) {
          setPlaintext(texto);
          AlgoritmoRSA( );
          this.setMsgEncriptada(new BigInteger(getplaintext().getBytes()).modPow(getE(), getN()).toString());
      }
      //Funcao para Encriptar e Desencriptar ->  calculo da potencia modular
-    public void rsaEncriptarDesencriptar(String texto) {
-        rsaEncriptar(texto);
+    public void RsaEncriptarDesencriptar(String texto) {
+        RsaEncriptar(texto);
         this.setMsgDesencriptada(new String(new BigInteger(getMsgEncriptada()).modPow(getD(), getN()).toByteArray()));
     }
 }

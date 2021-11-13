@@ -98,11 +98,11 @@ class EFolioA {
                     Assimetrico RSA = new Assimetrico();
                     if (principal.getOpcao( ) == 1){
                         principal.Plaintext();
-                        RSA.rsaEncriptar(principal.getPlaintext());
+                        RSA.RsaEncriptar(principal.getPlaintext());
                         System.out.println("Texto Encriptado: " + RSA.getMsgEncriptada());
                     } else if (principal.getOpcao( ) == 2){
                         principal.Plaintext();
-                        RSA.rsaEncriptarDesencriptar(principal.getPlaintext() );
+                        RSA.RsaEncriptarDesencriptar(principal.getPlaintext() );
                         System.out.println("Texto Encriptado: " + RSA.getMsgEncriptada());// Output
                         System.out.println("Texto Desencriptado: " + RSA.getMsgDesencriptada());// Output
                         principal.rsaVariaveis();
