@@ -4,14 +4,14 @@ package principal;
 
 public class Simetrico{
     private String plaintext;
-    private String MsgCriptada;
-    private String MsgDecriptada;
+    private String MsgEncriptada;
+    private String MsgDesencriptada;
 
     // construtor
     public Simetrico ( ) {
         this.plaintext = null;
-        this.MsgCriptada = null;
-        this.MsgDecriptada = null;
+        this.MsgEncriptada = null;
+        this.MsgDesencriptada = null;
     }
     //obtem os valores de plaintext
     public String getPlaintext ( ){
@@ -22,20 +22,20 @@ public class Simetrico{
         this.plaintext = plaintext;
     }
     //obtem os valores de MsgCriptada
-    public String getMsgCriptada ( ){
-        return this.MsgCriptada;
+    public String getMsgEncriptada( ){
+        return this.MsgEncriptada;
     }
     //atualiza os valores de MsgCriptada
-    public void setMsgCriptada(String MsgCriptada) {
-        this.MsgCriptada = MsgCriptada;
+    public void setMsgEncriptada(String MsgCriptada) {
+        this.MsgEncriptada = MsgCriptada;
     }
     //obtem os valores de MsgDecriptada
-    public String getMsgDecriptada ( ){
-        return this.MsgDecriptada;
+    public String getMsgDesencriptada( ){
+        return this.MsgDesencriptada;
     }
     //atualiza os valores de MsgDecriptada
-    public void setMsgDecriptada(String MsgDecriptada) {
-        this.MsgDecriptada = MsgDecriptada;
+    public void setMsgDesencriptada(String MsgDecriptada) {
+        this.MsgDesencriptada = MsgDecriptada;
     }
 
     //Funcao algoritmo rot13 ->  Desloca cada caractere do plaintexto pelo seu 13 caractere.
@@ -56,14 +56,14 @@ public class Simetrico{
         return new String(caracteres);//converção de array em new String
     }
     //Funcao para Criptar -> utiliza uma vez o algoritmo rot13
-    public String RotCrip ( ) {
-        setMsgCriptada(rot13());
-        return getMsgCriptada();
+    public String RotEncriptacao( ) {
+        setMsgEncriptada(rot13());
+        return getMsgEncriptada();
     }
     //Funcao para Criptar e Decriptar  -> utiliza duas vezes o algoritmo rot13
     public void RotEn_De ( ) {
-        setMsgCriptada(RotCrip());
-        setPlainText(getMsgCriptada());
-        setMsgDecriptada(rot13());
+        setMsgEncriptada(RotEncriptacao());
+        setPlainText(getMsgEncriptada());
+        setMsgDesencriptada(rot13());
     }
 }

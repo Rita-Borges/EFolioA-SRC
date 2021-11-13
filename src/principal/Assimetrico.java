@@ -7,15 +7,15 @@ import java.util.Random;
 
 public class Assimetrico {
     private String plaintext;
-    private String MsgCriptada;
-    private String MsgDecriptada ;
+    private String MsgEncriptada;
+    private String MsgDesencriptada;
     private BigInteger p, q, n, d, e, phi;
     private final int bitlen ;
     // construtor
     public Assimetrico ( ){
         this.plaintext = null;
-        this.MsgCriptada = null;
-        this.MsgDecriptada = null;
+        this.MsgEncriptada = null;
+        this.MsgDesencriptada = null;
         this.bitlen = 2048;
         this.p = null;
         this.q = null;
@@ -33,20 +33,20 @@ public class Assimetrico {
         this.plaintext = plaintext;
     }
     //Obtem os valores de MsgCriptada
-    public String getMsgcriptada ( ){
-        return this.MsgCriptada;
+    public String getMsgEncriptada( ){
+        return this.MsgEncriptada;
     }
     //Atualiza os valores de MsgCriptada
-    public  void setMsgcriptada (String Msgcriptada){
-        this.MsgCriptada = Msgcriptada;
+    public  void setMsgEncriptada(String Msgcriptada){
+        this.MsgEncriptada = Msgcriptada;
     }
     //Obtem os valores de MsgDecriptada
-    public String getMsgDecriptada ( ){
-        return this.MsgDecriptada;
+    public String getMsgDesencriptada( ){
+        return this.MsgDesencriptada;
     }
     //Atualiza os valores de MsgDecriptada
-    public void setMsgDecriptada (String MsgDecriptada){
-        this.MsgDecriptada = MsgDecriptada;
+    public void setMsgDesencriptada(String MsgDecriptada){
+        this.MsgDesencriptada = MsgDecriptada;
     }
     //Obtem os valores de bitlen
     int getbitlen ( ){
@@ -125,16 +125,16 @@ public class Assimetrico {
         //5 -> d = inverso multiplicativo de "e"
         this.setD(getE().modInverse(getPhi()));
     }
-    //Funcao para Criptar
-     public void  Criptar( String texto) {
+    //Funcao para Criptar ->  calculo da potencia modular
+     public void rsaEncriptar(String texto) {
          setPlaintext(texto);
          AlgoritmoRSA( );
-         this.setMsgcriptada(new BigInteger(getplaintext().getBytes()).modPow(getE(), getN()).toString());
+         this.setMsgEncriptada(new BigInteger(getplaintext().getBytes()).modPow(getE(), getN()).toString());
      }
-     //Funcao para Criptar e Decriptar
+     //Funcao para Criptar e Decriptar ->  calculo da potencia modular
     public void Criptar_Decriptar(String texto) {
-        Criptar(texto);
-        this.setMsgDecriptada(new String(new BigInteger(getMsgcriptada()).modPow(getD(), getN()).toByteArray()));
+        rsaEncriptar(texto);
+        this.setMsgDesencriptada(new String(new BigInteger(getMsgEncriptada()).modPow(getD(), getN()).toByteArray()));
     }
 }
 

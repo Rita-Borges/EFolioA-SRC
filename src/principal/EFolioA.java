@@ -41,7 +41,7 @@ class EFolioA {
     //Funcao que apresenta e as opcoes secundarias  e armazena a informacao digitada pelo utilizador
     public  void  Opcoes1() {
         Scanner texto = new Scanner(System.in);//input
-        System.out.println("Digite:\n 1 -> Apenas Cifrar \n 2 -> Cifrar e Decifrar   \n 3 -> Exit");
+        System.out.println("Digite:\n 1 -> Apenas Encriptar \n 2 -> Encriptar e Desencriptar   \n 3 -> Exit");
         setOpcao (texto.nextInt()); //le o input
         texto.nextLine();
         System.out.println("opção: " + getOpcao());//output
@@ -57,10 +57,10 @@ class EFolioA {
         System.out.println("Exit");
     }
     //Resultados dos calculos matematicos necessarios para chegar a conclusao da cifra RSA
-    public  void  VariaveisRSA() {
+    public  void rsaVariaveis() {
         Assimetrico RSA = new Assimetrico();
         RSA.AlgoritmoRSA ();
-        System.out.println("Resultado do algoritmo RSA: \n");// Output
+        System.out.println("\nResultado do algoritmo RSA: ");// Output
         System.out.println("p = " + RSA.getP());// Output
         System.out.println("q = " + RSA.getQ());  // Output
         System.out.println("n = " + RSA.getN());  // Output
@@ -81,14 +81,14 @@ class EFolioA {
                     if (principal.getOpcao() == 1){
                         principal.Plaintext();
                         Rot13.setPlainText(principal.getPlaintext().toUpperCase());
-                        Rot13.RotCrip( );
-                        System.out.println("Texto Criptado: " + Rot13.getMsgCriptada());// Output
+                        Rot13.RotEncriptacao( );
+                        System.out.println("Texto Encriptado: " + Rot13.getMsgEncriptada());// Output
                     }else if (principal.getOpcao() == 2) {
                         principal.Plaintext();
                         Rot13.setPlainText(principal.getPlaintext().toUpperCase());
                         Rot13.RotEn_De( );
-                        System.out.println("Texto Criptado: " + Rot13.getMsgCriptada());// Output
-                        System.out.println("Texto Criptado: " + Rot13.getMsgDecriptada());// Output
+                        System.out.println("Texto Encriptado: " + Rot13.getMsgEncriptada());// Output
+                        System.out.println("Texto Desencriptado: " + Rot13.getMsgDesencriptada());// Output
                     }else if (principal.getOpcao() == 3) {
                         principal.Exit();
                         break;
@@ -98,14 +98,14 @@ class EFolioA {
                     Assimetrico RSA = new Assimetrico();
                     if (principal.getOpcao( ) == 1){
                         principal.Plaintext();
-                        RSA.Criptar(principal.getPlaintext());
-                        System.out.println("Texto criptada: " + RSA.getMsgcriptada());
+                        RSA.rsaEncriptar(principal.getPlaintext());
+                        System.out.println("Texto Encriptado: " + RSA.getMsgEncriptada());
                     } else if (principal.getOpcao( ) == 2){
                         principal.Plaintext();
                         RSA.Criptar_Decriptar(principal.getPlaintext() );
-                        System.out.println("Texto criptada: " + RSA.getMsgcriptada());// Output
-                        System.out.println("Texto Decriptada: " + RSA.getMsgDecriptada());// Output
-                        principal.VariaveisRSA();
+                        System.out.println("Texto Encriptado: " + RSA.getMsgEncriptada());// Output
+                        System.out.println("Texto Desencriptado: " + RSA.getMsgDesencriptada());// Output
+                        principal.rsaVariaveis();
                     } else if (principal.getOpcao( ) == 3){
                         principal.Exit();
                         break;
