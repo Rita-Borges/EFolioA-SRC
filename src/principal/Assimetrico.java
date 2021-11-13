@@ -32,21 +32,21 @@ public class Assimetrico {
     void setPlaintext (String plaintext){
         this.plaintext = plaintext;
     }
-    //Obtem os valores de MsgCriptada
+    //Obtem os valores de MsgEncriptada
     public String getMsgEncriptada( ){
         return this.MsgEncriptada;
     }
-    //Atualiza os valores de MsgCriptada
-    public  void setMsgEncriptada(String Msgcriptada){
-        this.MsgEncriptada = Msgcriptada;
+    //Atualiza os valores de MsgEncriptada
+    public  void setMsgEncriptada(String MsgEncriptada){
+        this.MsgEncriptada = MsgEncriptada;
     }
-    //Obtem os valores de MsgDecriptada
+    //Obtem os valores de MsgDesencriptada
     public String getMsgDesencriptada( ){
         return this.MsgDesencriptada;
     }
-    //Atualiza os valores de MsgDecriptada
-    public void setMsgDesencriptada(String MsgDecriptada){
-        this.MsgDesencriptada = MsgDecriptada;
+    //Atualiza os valores de MsgDesencriptada
+    public void setMsgDesencriptada(String MsgDesencriptada){
+        this.MsgDesencriptada = MsgDesencriptada;
     }
     //Obtem os valores de bitlen
     int getbitlen ( ){
@@ -125,14 +125,14 @@ public class Assimetrico {
         //5 -> d = inverso multiplicativo de "e"
         this.setD(getE().modInverse(getPhi()));
     }
-    //Funcao para Criptar ->  calculo da potencia modular
+    //Funcao para Encriptar ->  calculo da potencia modular
      public void rsaEncriptar(String texto) {
          setPlaintext(texto);
          AlgoritmoRSA( );
          this.setMsgEncriptada(new BigInteger(getplaintext().getBytes()).modPow(getE(), getN()).toString());
      }
-     //Funcao para Criptar e Decriptar ->  calculo da potencia modular
-    public void Criptar_Decriptar(String texto) {
+     //Funcao para Encriptar e Desencriptar ->  calculo da potencia modular
+    public void rsaEncriptarDesencriptar(String texto) {
         rsaEncriptar(texto);
         this.setMsgDesencriptada(new String(new BigInteger(getMsgEncriptada()).modPow(getD(), getN()).toByteArray()));
     }

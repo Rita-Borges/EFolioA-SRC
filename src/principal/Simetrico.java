@@ -21,28 +21,28 @@ public class Simetrico{
     public void setPlainText(String plaintext) {
         this.plaintext = plaintext;
     }
-    //obtem os valores de MsgCriptada
+    //obtem os valores de MsgEncriptada
     public String getMsgEncriptada( ){
         return this.MsgEncriptada;
     }
-    //atualiza os valores de MsgCriptada
-    public void setMsgEncriptada(String MsgCriptada) {
-        this.MsgEncriptada = MsgCriptada;
+    //atualiza os valores de MsgEncriptada
+    public void setMsgEncriptada(String MsgEncriptada) {
+        this.MsgEncriptada = MsgEncriptada;
     }
-    //obtem os valores de MsgDecriptada
+    //obtem os valores de MsgDesencriptada
     public String getMsgDesencriptada( ){
         return this.MsgDesencriptada;
     }
-    //atualiza os valores de MsgDecriptada
-    public void setMsgDesencriptada(String MsgDecriptada) {
-        this.MsgDesencriptada = MsgDecriptada;
+    //atualiza os valores de MsgDesencriptada
+    public void setMsgDesencriptada(String MsgDesencriptada) {
+        this.MsgDesencriptada = MsgDesencriptada;
     }
 
     //Funcao algoritmo rot13 ->  Desloca cada caractere do plaintexto pelo seu 13 caractere.
     //O alfabeto é composto por 26 caracteres e a 13º caractere é o M.
     //Caso a letra a cifrar seja maior do que M então vai procurar a sua corresponde  (letra= letra - 13).
     //Caso a letra a cifrar seja menor do que M então vai procurar a sua corresponde (letra= letra + 13).
-    public  String rot13( ) {
+    public  String AlgoritmoRot13( ) {
         char[] caracteres = this.getPlaintext().toCharArray();//conversão da String em array de caracteres
         int c = 0;
         while (c<caracteres.length ){
@@ -56,14 +56,14 @@ public class Simetrico{
         return new String(caracteres);//converção de array em new String
     }
     //Funcao para Criptar -> utiliza uma vez o algoritmo rot13
-    public String rotEncriptacao( ) {
-        setMsgEncriptada(rot13());
+    public String Rot13Encriptar( ) {
+        setMsgEncriptada(AlgoritmoRot13());
         return getMsgEncriptada();
     }
     //Funcao para Criptar e Decriptar  -> utiliza duas vezes o algoritmo rot13
-    public void rotEnDe( ) {
-        setMsgEncriptada(rotEncriptacao());
+    public void Rot13EncriptarDesencriptar( ) {
+        setMsgEncriptada(Rot13Encriptar());
         setPlainText(getMsgEncriptada());
-        setMsgDesencriptada(rot13());
+        setMsgDesencriptada(AlgoritmoRot13());
     }
 }
