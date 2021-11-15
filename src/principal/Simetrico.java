@@ -1,4 +1,4 @@
-/* Cifra ROT13 */
+/* Cifra simétrica: ROT13 */
 
 package principal;
 
@@ -38,16 +38,16 @@ public class Simetrico{
         this.MsgDesencriptada = MsgDesencriptada;
     }
 
-    //Funcao algoritmo rot13 ->  Desloca cada caractere do plaintexto pelo seu 13 caractere.
-    //O alfabeto é composto por 26 caracteres e a 13º caractere é o M.
+    //Função algoritmo rot13 ->  Desloca cada caráter do plaintexto pelo seu 13 caráter.
+    //O alfabeto é composto por 26 caracteres e a 13º caráter é o M.
     //Caso a letra a cifrar seja maior do que M então vai procurar a sua corresponde  (letra= letra - 13).
     //Caso a letra a cifrar seja menor do que M então vai procurar a sua corresponde (letra= letra + 13).
     public  String AlgoritmoRot13( ) {
         char[] caracteres = this.getPlaintext().toCharArray();//conversão da String em array de caracteres
         int c = 0;
-        while (c<caracteres.length ){
+        while (c < caracteres.length ){
             char letra = caracteres[c];
-            if (letra >= 'A' && letra <= 'Z') {//apanas é considerado o alfabeto (A a z)
+            if (letra >= 'A' && letra <= 'Z') {//apenas é considerado o alfabeto (A a z)
                 Character rot = (letra > 'M') ? (letra -= 13): (letra += 13);
             }
             caracteres[c] = letra;
@@ -55,12 +55,12 @@ public class Simetrico{
         }
         return new String(caracteres);//converção de array em new String
     }
-    //Funcao para Criptar -> utiliza uma vez o algoritmo rot13
+    //Função para Encriptar -> utiliza uma vez o algoritmo rot13
     public String Rot13Encriptar( ) {
         setMsgEncriptada(AlgoritmoRot13());
         return getMsgEncriptada();
     }
-    //Funcao para Criptar e Decriptar  -> utiliza duas vezes o algoritmo rot13
+    //Função para Encriptar e Desencriptar -> utiliza duas vezes o algoritmo rot13
     public void Rot13EncriptarDesencriptar( ) {
         setMsgEncriptada(Rot13Encriptar());
         setPlainText(getMsgEncriptada());

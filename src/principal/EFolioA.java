@@ -37,7 +37,7 @@ class EFolioA {
         this.opcao = opcao;
     }
 
-    //Funcao que apresenta e as opcoes primarias e armazena a informacao digitada pelo utilizador
+    //Função que apresenta e as opções primárias e armazena a informação digitada pelo utilizador
     public  void  Opcoes() {
         Scanner texto = new Scanner(System.in);
         System.out.println("Digite: \n 1 -> Cifra ROT13 (Cifra Simétrica) \n 2 -> Cifra RSA (Cifra Assimétrica)\n 3 -> Exit ");
@@ -45,7 +45,7 @@ class EFolioA {
         texto.nextLine();
         System.out.println("opção: " + getOpcao());//output
     }
-    //Funcao que apresenta e as opcoes secundarias  e armazena a informacao digitada pelo utilizador
+    //Função que apresenta e as opções secundárias  e armazena a informação digitada pelo utilizador
     public  void  Opcoes1() {
         Scanner texto = new Scanner(System.in);//input
         System.out.println("Digite:\n 1 -> Apenas Encriptar \n 2 -> Encriptar e Desencriptar   \n 3 -> Exit");
@@ -53,7 +53,7 @@ class EFolioA {
         texto.nextLine();
         System.out.println("opção: " + getOpcao());//output
     }
-    //Funcao que apresenta e armazena o texto claro (plaintext)
+    //Função que apresenta e armazena o texto claro (plaintext)
     public  void  Plaintext() {
         Scanner texto = new Scanner(System.in);// input
         System.out.println("Digite o Plaintext Pretendido: ");
@@ -63,7 +63,7 @@ class EFolioA {
     public  void  Exit() {
         System.out.println("Exit");
     }
-    //Resultados dos calculos matematicos necessarios para chegar a conclusao da cifra RSA
+    //Resultados dos cálculos matemáticos necessários para chegar a conclusão da cifra RSA
     public  void rsaVariaveis() {
         Assimetrico RSA = new Assimetrico();
         RSA.AlgoritmoRSA ();
@@ -76,7 +76,7 @@ class EFolioA {
         System.out.println("phi = " + RSA.getPhi());  //Output
     }
 
-    //funcao principal
+    //Função principal
     public static void main(String[] args) {
         try {
             EFolioA principal = new EFolioA();
