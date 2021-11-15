@@ -1,4 +1,11 @@
-/*  Lei-EfolioA  */
+/*  E-fólio A
+*   SEGURANÇA EM REDES E COMPUTADORES
+*   21181
+*   Realizado por Ana Rita Borges Pinho
+*   nº 1800464
+*   Licenciatura de engenharia informática
+*/
+
 package principal;
 
 import java.util.InputMismatchException;

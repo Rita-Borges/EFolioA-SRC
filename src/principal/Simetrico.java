@@ -1,4 +1,4 @@
-/* Cifra ROT13*/
+/* Cifra ROT13 */
 
 package principal;
 

@@ -1,4 +1,4 @@
-/* algoritmo RSA */
+/* Cifra RSA */
 
 package principal;
 
